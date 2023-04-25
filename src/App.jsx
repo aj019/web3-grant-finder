@@ -1,10 +1,24 @@
 import { useState } from 'react'
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import {fetchGrants} from './utils/grants'
+import GrantCard from './components/GrantCard'
 function App() {
   const [count, setCount] = useState(0)
+  const [inputText,setInputText] = useState("")
+  const [grants,setGrants] = useState([])
+
+
+  const onChangeText = (event) => {
+    setInputText(event.target.value)
+  }
+
+  const onSearch = () => {
+    console.log("Grants Fetched");
+    setGrants(fetchGrants())
+  }
 
   return (
     <>
@@ -43,19 +57,38 @@ function App() {
 
         <section className="page-title">
           <div className="auto-container">
-            <h1>What are you building ?</h1>
+            <h1>Find GRANTS for your project</h1>
+            <div className="text" style={{color: "#fff"}}>Describe what you are building and we will use Chat GPT API to show you grants that perfectly matches your project <br /> </div>
 
-
-            <div className="search-boxed">
-              <div className="search-box">
-                <form method="post" action="contact.html">
-                  <div className="form-group">
-                    <input type="search" name="search-field" value="" placeholder="What do you want to learn?" required />
-                      <button type="submit"><span className="icon fa fa-search"></span></button>
-                  </div>
-                </form>
-              </div>
-            </div>
+            <div class="inner-container">
+				
+				<div class="sec-title centered">
+					
+				</div>
+				
+				
+				<div class="contact-form">
+				
+					
+					{/* <form method="post" action="sendemail.php" id="contact-form" novalidate="novalidate"> */}
+						<div class="row clearfix">
+							
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group">
+								<textarea class="" name="message" placeholder="I am building a ...."></textarea>
+							</div>
+							
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group text-centered">
+								<button class="theme-btn btn-style-three" onClick={onSearch}>
+                  <span class="txt">Search Grants <i class="fa fa-search"></i></span>
+                </button>
+							</div>
+							
+						</div>
+					{/* </form> */}
+						
+				</div>
+				
+			</div>
 
           </div>
         </section>
@@ -67,94 +100,12 @@ function App() {
           <div className="patern-layer-two paroller" data-paroller-factor="0.40" data-paroller-factor-lg="-0.20" data-paroller-type="foreground" data-paroller-direction="vertical" style={{backgroundImage: `url("images/icons/icon-2.png")`}}></div>
           <div className="auto-container">
             <div className="sec-title centered">
-              <h2>Popular Courses</h2>
-              <div className="text">Replenish him third creature and meat blessed void a fruit gathered you’re, <br /> they’re two waters own morning gathered.</div>
+              <h2>Here's what we found</h2>
+              <div className="text">Protocols and projects launch grant programs to reward teams and individuals to build in their ecosystem. We have compiled the largest real-time directory list of all grants</div>
             </div>
             <div className="row clearfix">
 
-
-              <div className="cource-block col-lg-4 col-md-6 col-sm-12">
-                <div className="inner-box">
-                  <div className="image">
-                    <a href="course-detail.html"><img src="https://via.placeholder.com/370x253" alt="" /></a>
-                  </div>
-                  <div className="lower-content">
-                    <div className="clearfix">
-                      <div className="pull-left">
-                        <h5><a href="course-detail.html">Development Course</a></h5>
-                      </div>
-                      <div className="pull-right">
-                        <div className="price">$140</div>
-                      </div>
-                    </div>
-                    <div className="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters.</div>
-                    <div className="clearfix">
-                      <div className="pull-left">
-                        <div className="students">125 Student</div>
-                      </div>
-                      <div className="pull-right">
-                        <a href="course-detail.html" className="enroll">Enroll Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="cource-block col-lg-4 col-md-6 col-sm-12">
-                <div className="inner-box">
-                  <div className="image">
-                    <a href="course-detail.html"><img src="https://via.placeholder.com/370x253" alt="" /></a>
-                  </div>
-                  <div className="lower-content">
-                    <div className="clearfix">
-                      <div className="pull-left">
-                        <h5><a href="course-detail.html">Language Course</a></h5>
-                      </div>
-                      <div className="pull-right">
-                        <div className="price">$140</div>
-                      </div>
-                    </div>
-                    <div className="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters.</div>
-                    <div className="clearfix">
-                      <div className="pull-left">
-                        <div className="students">125 Student</div>
-                      </div>
-                      <div className="pull-right">
-                        <a href="course-detail.html" className="enroll">Enroll Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div className="cource-block col-lg-4 col-md-6 col-sm-12">
-                <div className="inner-box">
-                  <div className="image">
-                    <a href="course-detail.html"><img src="https://via.placeholder.com/370x253" alt="" /></a>
-                  </div>
-                  <div className="lower-content">
-                    <div className="clearfix">
-                      <div className="pull-left">
-                        <h5><a href="course-detail.html">Business Course</a></h5>
-                      </div>
-                      <div className="pull-right">
-                        <div className="price">$140</div>
-                      </div>
-                    </div>
-                    <div className="text">Replenish him third creature and meat blessed void a fruit gathered you’re, they’re two waters.</div>
-                    <div className="clearfix">
-                      <div className="pull-left">
-                        <div className="students">125 Student</div>
-                      </div>
-                      <div className="pull-right">
-                        <a href="course-detail.html" className="enroll">Enroll Now</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {grants.map((grant,i) => <GrantCard grant={grant} />)}
 
             </div>
           </div>
