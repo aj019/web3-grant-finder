@@ -16,7 +16,7 @@ export default function GrantCard({grant}) {
                   <div className="lower-content">
                     <div className="clearfix">
                       <div className="pull-left">
-                        <h5 style={{color: "#000",textAlign: "left"}}>{grant.title}</h5>
+                        <h5 style={{color: "#000",textAlign: "left",textOverflow: "ellipsis",overflow: "hidden",display: "-webkit-box",WebkitLineClamp: 3,WebkitBoxOrient: "vertical"}}>{grant.title}</h5>
                       </div>                      
                     </div>
                     <div className="clearfix">
